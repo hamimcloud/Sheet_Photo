@@ -1,0 +1,5 @@
+requests
+tqdm
+opencv-python
+Pillow
+rembg
