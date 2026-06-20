@@ -148,14 +148,11 @@ def step_2_remove_background(data):
             # Convert to RGBA for alpha matting
             img_rgba = img.convert("RGBA")
 
-            # Run Background Removal (alpha_matting + post_process_mask for maximum clarity and detail)
+            # Run Background Removal (we set alpha_matting=False to prevent background color bleed/halos)
             cutout = remove(
                 img_rgba, 
                 session=REMBG_SESSION, 
-                alpha_matting=True, 
-                alpha_matting_foreground_threshold=240,
-                alpha_matting_background_threshold=10,
-                alpha_matting_erode_size=10,
+                alpha_matting=False, 
                 post_process_mask=True
             )
 
